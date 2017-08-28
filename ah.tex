@@ -66,7 +66,7 @@
 
 %\iffalse
 \title{\bf Security APIs:  \\
---{\large \ \ Human and formal models for proficient use  \ } --}
+--{\large \ \ \ } --}
 \author{Awais Rashid and Bogdan Warinschi}
 
 %\fi
@@ -150,7 +150,7 @@ He was a co-investigator on the EP/H043454/1 EPSRC grant on "Privacy and Attesta
 He is a co-PI on the FP 7 project ``PRACTICE" (grant agreement 609611).
 %He currently acts as the university liaison with the Trusted Computing Group (TCG), a consortium of industrial stakeholders in charge with the development of the next generation of the TPM security co-processor.
 \fi
-Dr. Warinschi served on more than thirty program committees, most recently on CRYPTO'11, CCS'11 and CCS'12. 
+Dr. Warinschi served on more than thirty program committees, most recently on Security and Privacy '11, CCS'11 and CCS'12. 
 He was the programme chair of the Formal and Computational Cryptography (FCC'12) workshop. 
 The workshop is dedicated to an area of cryptography called {\em computational   soundness} which Dr. Warinschi had helped found~\cite{micciancio04completeness,micciancio04soundness,cortier05computationally,abadi05security,abadi05passwordbased,abadi06guessing,datta06computationally,cortier06computationally}.
 The basic idea is to combine two fundamentally different paradigms for proving security, one based on symbolic (formal methods-like) techniques and one based on complexity and computation theory. The main benefit of the approach is that it enables simpler design of tools for computer-aided verification that yields computational security guarantees.
@@ -241,6 +241,7 @@ Employing protocols (rather than vanilla encryption) goes a long way towards avo
 For example, when used with care, a secure channel protocol like the Transport Layer Security (TLS) takes care of entity and message authentication, integrity of the communication and so on.  Furthermore, good, widely vetted protocol implementations are readily available through libraries. 
 However, using these libraries faces a designer/implementer with further challenges.   The APIs of these libraries are complex and unintuitive, require users to set often obscure parameters, and select between many possible configurations -- some secure, some insecure!  Many attacks are in fact due to incompetent uses of existing libraries  \cite{GIJABS12}. 
 
+This studenship proposes to further study the 
 
 \paragraph{Mismatch between developers understanding of APIs}
 
@@ -261,7 +262,16 @@ The project fits in the named research area 8. ``Building trusted and trustworth
 \subsection{Research hypothesis and objectives.}
 
 
+There is by now sufficient evidence that, many of common errors that developers make are due to a mismatch between 
 
+
+
+
+
+
+\subsection{Project structure and methodology}
+
+We structure the project along two direction. 
 
  (1) Studying mental models of developers with respect to security APIs and composition of secure protocols. There is a lot of work on mental models of end-users but none that I am aware of on mental models of developers. So this will itself be a key contribution. We can study how well the mental models *align* with what is a *correct* model. 
  We can analyse how far incorrect mental models are from what would be a correct one. 
@@ -269,22 +279,27 @@ The project fits in the named research area 8. ``Building trusted and trustworth
  
 (2) Use the outcomes of (1) to develop new abstractions that are more usable and lead to improved mental models. A major part of this would be on a high-level specification and security analysis as noted in the proposal you sent. 
 
-(3) Use outcomes of (1) to design more expressive composition mechanisms. I’d be interested in exploring expressiveness of any composition mechanisms and this could dovetail with your interests in simplified secure protocol compositions. 
+%(3) Use outcomes of (1) to design more expressive composition mechanisms. I’d be interested in exploring expressiveness of any composition mechanisms and this could dovetail with your interests in simplified secure protocol compositions. 
 
- (4) Evaluate results from (2) and (3) with developers as to whether they do improve mental models and are more usable. I note that any such evaluation would methodologically be iterative - running alongside (2) and (3).
-
-
-
+ (3) Evaluate results from (2) with developers as to whether they do improve mental models and are more usable. 
+ Such evaluation would methodologically be iterative - running alongside (2).
 
 
-\subsection{Project structure and methodology}
+
 We structure the work in the project into three packages as follows.
 
 \begin{description}\itemsep-3pt
 \item[WP 1] Mental models for developers with respect to security APIs and composition. 
 \item[WP 2] New abstractions.
-\item[WP 3] New composition mechanisms.
-\item[WP 4] Evaluation
+In this work package we will capitalise on the models built in WP 1 and design new abstractions which align better with 
+
+. to eliminate the need for cryptographic expertise when translating applications designed within \spec\ to an implementation. 
+Specifically, we will support developers to use cryptographic libraries via interfaces that closely match the abstractions used in the \spec.
+For example, using the tools developed in this task, an implementer will be able to establish a secure channel between two parties by invoking a high-level command that obscures the underlying cryptographic mechanisms.  
+In particular, employing TLS will not require the implementer to set up parameters or ensure certificate validation.  
+Technically, we will provide wrappers to some of the most commonly used libraries.  The interface exposed by these wrappers will follow closely the level of abstraction of the language \spec. 
+We remark that this approach is one of the feature of the NaCl cryptographic library~\cite{bernstein}; currently that library only considers lower level primitives.  
+\item[WP 3] Evaluation
 \end{description}
 
 \paragraph{WP1 --- Mental models for developers.}
