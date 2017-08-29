@@ -60,6 +60,8 @@
 
 %\newcites{own}{Selected References for {B}ogdan {W}arinschi}
 
+\newcommand{\bw}[1]{{\textcolor{blue} {Bogdan: #1}}}
+
 \renewcommand{\thesection}{\Alph{section}}
 
 \date{}
@@ -241,6 +243,10 @@ For example, when used with care, a secure channel protocol like the Transport L
 \paragraph{Mismatch between developers understanding of APIs}
 The discussion highlights various mismatches between how developers perceive the security delivered by cryptographic constructs (as available, e.g. through the APIs of standard cryptographic libraries) and the guarantees that these actually offer. 
 
+We note that while there is a lot of work on mental models of \emph{end-users} there is  none that we are aware of on mental models of \emph{developers}. 
+
+
+
 
 
 \paragraph{Existent work.} We briefly survey existent work in this area, and highlight some of their drawbacks on which we plan to improve upon.
@@ -268,26 +274,20 @@ There is by now sufficient evidence that, many of common errors that developers 
 
 \subsection{Project structure and methodology}
 
-We structure the project along two direction.  First, we will study mental models of developers with respect to security APIs. 
 
-There is a lot of work on mental models of end-users but none that I am aware of on mental models of developers. 
-We can study how well the mental models *align* with what is a *correct* model.   We can analyse how far incorrect mental models are from what would be a correct one. 
+We structure the research in the project along two distinct direction: a study of mental models of developers with respect to security APIs and the development of abstractions for security functionality which result in better models, less prone to errors and flaws.  
 
-
- 
-(2) Use the outcomes of (1) to develop new abstractions that are more usable and lead to improved mental models. A major part of this would be on a high-level specification and security analysis as noted in the proposal you sent. 
-
-%(3) Use outcomes of (1) to design more expressive composition mechanisms. I’d be interested in exploring expressiveness of any composition mechanisms and this could dovetail with your interests in simplified secure protocol compositions. 
-
- (3) Evaluate results from (2) with developers as to whether they do improve mental models and are more usable. 
- Such evaluation would methodologically be iterative - running alongside (2).
-
-
-
-We structure the work in the project into three packages as follows.
+Methodologically, we structure the work in the project into three packages as follows.
 
 \begin{description}\itemsep-3pt
 \item[WP 1] Mental models for developers with respect to security APIs and composition. 
+We will start with a study of mental models for software developers which will explain how they perceive and utilise the interface of typical security APIs (e.g. OAuth and TLS). 
+
+\bw{from email exchange:}
+We can study how well the mental models *align* with what is a *correct* model.   We can analyse how far incorrect mental models are from what would be a correct one. 
+
+\subparagraph{Milestones.} 
+
 \item[WP 2] New abstractions. 
 
 In this work package we will capitalise on the models built in WP 1 and design new abstractions which expose to developers functionality which is better aligned with their peception of security functionality, as captured by the models developed in the previous workpackage. 
@@ -297,31 +297,23 @@ In particular, employing TLS will not require the implementer to set up paramete
 Technically, we will provide wrappers to some of the most commonly used libraries.  
 We remark that improved APIs is one of the feature of the NaCl cryptographic library~\cite{bernstein}; currently that library only considers lower level primitives.  
 \item[WP 3] Evaluation
+
+The evaluation workpackage will run alongside and act as liason between workpackages WP1 and WP2.  
+We envision an iterative process where the mental models developed in WP1 inspire the abstractions developed in WP2, which on the one hand can be benchmarked against the models and on the other lead to more refined models. 
+
+\vspace{-\baselineskip}
+\subparagraph{Milestones.}
+
+
 \end{description}
 
-\paragraph{WP1 --- Mental models for developers.}
-%
-We will start with a study of mental models for software developers which will explain how they perceive and utilise the interface of typical security APIs (e.g. OAuth and TLS). 
-
-\vspace{-\baselineskip}
-\subparagraph{Milestones.} 
-
-\paragraph{WP2 --- New abstractions.}
-%
-In this workpackage we will build on the 
-
-%
-%A cryptographic proof is often a sequence of ``games'' with transitions or ``hops'' between them, where for each hop one has to first construct a suitable reduction and then prove that this reduction succeeds as a transition from one game to the next. 
 
 
 \subparagraph{Milestones.}
 
 
-\vspace{-\baselineskip}
-\subparagraph{Milestones.}
 
-\paragraph{WP3 -- Evaluation.}
-
+\paragraph{WP3 -- Evaluation.}  
 
 %We summarise the workplan in the following chart:
 
@@ -368,7 +360,7 @@ In this workpackage we will build on the
 
 \section{Costs}
 The costs associated to this project are summarized in Figure~\ref{fig:costs}.  
-The costs associated to travel and subsistence include participation at conferences and summer schools. 
+The costs associated to travel and subsistence include participation at conferences and summer schools for project members.
 
 \begin{figure}[h!t]
 \begin{center}
