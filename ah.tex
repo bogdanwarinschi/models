@@ -231,22 +231,19 @@ They need to select which cryptographic primitives to use, how to combine severa
 
 
 Consider for example a basic client-server application where the client delegates to the server some computation and where it is desired that the communication stays secret (from third parties).
-An inexperienced designer would conclude that it suffices to encrypt the client-server communication. 
-There are however several other key, yet sometimes non-obvious, questions that need appropriate answers before concluding that the encryption is sufficient. 
-%For example, how to ensure authentication of parties, how to protect against replay attacks. 
-In particular, the client needs to guarantee the identity of the server before it makes any query, encryptions should be authenticated~\cite{BN08}, etc.
-%This kind of errors are often encountered in designs, and reflect 
+An inexperienced designer would conclude that it suffices to simply encrypt the client-server communication. 
+There are however several other crucial yet non-obvious questions that need to be answered before concluding that  encryption is sufficient. 
+For example, the client needs to guarantee the identity of the server before it makes any query, encryptions should be authenticated~\cite{BN08}, replay of messages that were sent encrypted should not be possible, etc. 
 
 Employing protocols (rather than vanilla encryption) goes a long way towards avoiding many subtle pitfalls.  
-For example, when used with care, a secure channel protocol like the Transport Layer Security (TLS) takes care of entity and message authentication, integrity of the communication and so on.  Furthermore, good, widely vetted protocol implementations are readily available through libraries. 
-However, using these libraries faces a designer/implementer with further challenges.   The APIs of these libraries are complex and unintuitive, require users to set often obscure parameters, and select between many possible configurations -- some secure, some insecure!  Many attacks are in fact due to incompetent uses of existing libraries  \cite{GIJABS12}. 
-
-This studenship proposes to further study the 
+For example, when used with care, a secure channel protocol like the Transport Layer Security (TLS) takes care of entity and message authentication, integrity of the communication and so on.  Furthermore, good, widely vetted protocol implementations are readily available through libraries.  However, using these libraries faces a designer/implementer with further challenges.   The APIs of these libraries are complex and unintuitive, require users to set often obscure parameters, and select between many possible configurations -- some secure, some insecure!  Many attacks are in fact due to incompetent uses of existing libraries  \cite{GIJABS12}. 
 
 \paragraph{Mismatch between developers understanding of APIs}
+The discussion highlights various mismatches between how developers perceive the security delivered by cryptographic constructs (as available, e.g. through the APIs of standard cryptographic libraries) and the guarantees that these actually offer. 
 
 
-\paragraph{Existent work.} We briefly survey existent approaches, and highlight some of their drawbacks on which we plan to improve upon.
+
+\paragraph{Existent work.} We briefly survey existent work in this area, and highlight some of their drawbacks on which we plan to improve upon.
 
 %\clearpage
 \section{Proposed research and technical approach (2.5 pages)}
@@ -271,11 +268,12 @@ There is by now sufficient evidence that, many of common errors that developers 
 
 \subsection{Project structure and methodology}
 
-We structure the project along two direction. 
+We structure the project along two direction.  First, we will study mental models of developers with respect to security APIs. 
 
- (1) Studying mental models of developers with respect to security APIs and composition of secure protocols. There is a lot of work on mental models of end-users but none that I am aware of on mental models of developers. So this will itself be a key contribution. We can study how well the mental models *align* with what is a *correct* model. 
- We can analyse how far incorrect mental models are from what would be a correct one. 
- This can then form the basis of (2) and (3) below.
+There is a lot of work on mental models of end-users but none that I am aware of on mental models of developers. 
+We can study how well the mental models *align* with what is a *correct* model.   We can analyse how far incorrect mental models are from what would be a correct one. 
+
+
  
 (2) Use the outcomes of (1) to develop new abstractions that are more usable and lead to improved mental models. A major part of this would be on a high-level specification and security analysis as noted in the proposal you sent. 
 
@@ -290,15 +288,14 @@ We structure the work in the project into three packages as follows.
 
 \begin{description}\itemsep-3pt
 \item[WP 1] Mental models for developers with respect to security APIs and composition. 
-\item[WP 2] New abstractions.
-In this work package we will capitalise on the models built in WP 1 and design new abstractions which align better with 
+\item[WP 2] New abstractions. 
 
-. to eliminate the need for cryptographic expertise when translating applications designed within \spec\ to an implementation. 
-Specifically, we will support developers to use cryptographic libraries via interfaces that closely match the abstractions used in the \spec.
-For example, using the tools developed in this task, an implementer will be able to establish a secure channel between two parties by invoking a high-level command that obscures the underlying cryptographic mechanisms.  
+In this work package we will capitalise on the models built in WP 1 and design new abstractions which expose to developers functionality which is better aligned with their peception of security functionality, as captured by the models developed in the previous workpackage. 
+
+We will provide both theoretical grounding (in the form of variations of existing security constructs or entirely new ones) and practical realizations in the form of improved APIs which reflect the new abstractions which we develop.  For instance, we envision that an implementer will be able to establish a secure channel between two parties by invoking a high-level command that hides almost entirely the underlying cryptographic mechanisms.  
 In particular, employing TLS will not require the implementer to set up parameters or ensure certificate validation.  
-Technically, we will provide wrappers to some of the most commonly used libraries.  The interface exposed by these wrappers will follow closely the level of abstraction of the language \spec. 
-We remark that this approach is one of the feature of the NaCl cryptographic library~\cite{bernstein}; currently that library only considers lower level primitives.  
+Technically, we will provide wrappers to some of the most commonly used libraries.  
+We remark that improved APIs is one of the feature of the NaCl cryptographic library~\cite{bernstein}; currently that library only considers lower level primitives.  
 \item[WP 3] Evaluation
 \end{description}
 
@@ -319,13 +316,11 @@ In this workpackage we will build on the
 
 \subparagraph{Milestones.}
 
-\paragraph{WP3 --- New composition mechanisms.}
-
 
 \vspace{-\baselineskip}
 \subparagraph{Milestones.}
 
-\paragraph{WP4 -- Evaluation.}
+\paragraph{WP3 -- Evaluation.}
 
 
 %We summarise the workplan in the following chart:
