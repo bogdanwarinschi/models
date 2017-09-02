@@ -291,16 +291,21 @@ We can study how well the mental models *align* with what is a *correct* model. 
 
 \subparagraph{Milestones.} 
 
-\item[WP 2] New abstractions. 
+\item[WP 2] New abstractions and realisations. 
 
-In this work package we will use the results of WP1 to develop improved interfaces to the libraries that implement security features. 
-Specifically, we will use the mental models developed in WP1 to identify gaps between how developers perceive the security guarantees offered by library components and the actualy guarantees that are offered. 
-These gaps will also suggest novel abstractions which expose to developers functionality which is better aligned with their peception of security functionality, as captured by the models developed in the previous workpackage. 
+In this three-stage work package we will use the results of WP1 to develop improved interfaces to the libraries that implement security features.  
+In the first stage we will use the mental models developed in WP1 to identify disparities between how developers perceive the security guarantees offered by library components and the actualy guarantees that are offered. The gaps will suggest novel abstractions which expose to developers functionality which is better aligned with their peception of security functionality, as captured by the models developed in the previous workpackage. 
+For instance, we envision that a developer will be able to establish a secure channel between two parties by invoking a high-level command that hides almost entirely the underlying cryptographic mechanisms.   In particular, employing TLS will not require the implementer to set up parameters or ensure certificate validation, thus avoiding for instance the problems identified in~\cite{}. 
 
-We will provide both theoretical grounding (in the form of variations of existing security constructs or entirely new ones) and practical realizations in the form of improved APIs which reflect the new abstractions which we develop.  For instance, we envision that an implementer will be able to establish a secure channel between two parties by invoking a high-level command that hides almost entirely the underlying cryptographic mechanisms.  
-In particular, employing TLS will not require the implementer to set up parameters or ensure certificate validation.  
+In the next stage we will provide theoretical grounding, for example in the form of variations of existing security constructs or entirely new ones.  As standard in modern security and cryptographic practice, we will develop rigorous mathematical models that capture the security guarantees of the newly proposed abstractions and explain how they can be achieved (e.g. by using already existing functionality).  
+An example that we can use is the recent work by Boldyreva, Patton and Shrimpton~\cite{} who show how to employ existing APIs to implement more advanced functionality (in the context of headged encryption).  
+
+ The third stage we will provide practical realizations in the form of improved APIs which reflect the new abstractions which we develop.  
+\iffalse
 Technically, we will provide wrappers to some of the most commonly used libraries.  
 We remark that improved APIs is one of the feature of the NaCl cryptographic library~\cite{bernstein}; currently that library only considers lower level primitives.  
+\fi
+
 \item[WP 3] Evaluation
 
 The evaluation workpackage will run alongside and act as liason between workpackages WP1 and WP2.  
