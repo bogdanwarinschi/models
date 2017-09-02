@@ -67,8 +67,8 @@
 \date{}
 
 %\iffalse
-\title{\bf Security APIs:  \\
---{\large \ \ \ } --}
+\title{\bf Usable Security APIs\\
+-- \ \ \ {\large Mental Models and Novel Abstractions \ \ \ } --}
 \author{Awais Rashid and Bogdan Warinschi}
 
 %\fi
@@ -154,11 +154,11 @@ He is a co-PI on the FP 7 project ``PRACTICE" (grant agreement 609611).
 \fi
 Dr. Warinschi served on more than thirty program committees, most recently on Security and Privacy '11, CCS'11 and CCS'12. 
 He was the programme chair of the Formal and Computational Cryptography (FCC'12) workshop. 
-The workshop is dedicated to an area of cryptography called {\em computational   soundness} which Dr. Warinschi had helped found~\cite{micciancio04completeness,micciancio04soundness,cortier05computationally,abadi05security,abadi05passwordbased,abadi06guessing,datta06computationally,cortier06computationally}.
+The workshop is dedicated to an area of cryptography called {\em computational   soundness} which Dr. Warinschi had helped establish~\cite{micciancio04completeness,micciancio04soundness,cortier05computationally,abadi05security,abadi05passwordbased,abadi06guessing,datta06computationally,cortier06computationally}.
 The basic idea is to combine two fundamentally different paradigms for proving security, one based on symbolic (formal methods-like) techniques and one based on complexity and computation theory. The main benefit of the approach is that it enables simpler design of tools for computer-aided verification that yields computational security guarantees.
 Part of the scientific underpining of this project relies on his expertise in this subject. 
 
-In addition to his expertise in the area of computational soundness, this proposal relies on the expertise of Dr. Warinschi in the design of security models and his interest in analysing systems used in practise.
+In addition to his expertise in the area of computational soundness, this proposal relies on the expertise of Prof. Warinschi in the design of security models and his interest in analysing systems used in practise.
 In particular, Dr. Warinschi has maintained a constant interest in designing cryptographic security models, the first step towards the rigorous analysis of any cryptographic system. 
 His research addresses the security of group signatures \cite{BMW03}, proxy signatures \cite{proxies}, defence mechanisms for DOS resistance (cryptographic puzzles) \cite{puzzles},  key-exchange \cite{ke}, voting schemes \cite{helios}, and cryptographic APIs \cite{KSW11}.
 This work is complemented by security analysis that led to a better understanding of protocols and primitives that are in current use.  These include Public Key Infrastructures (PKI) \cite{boldyreva07acloser}, the Trusted Platform Module (TPM) \cite{pcas}, the Helios Internet voting schemes \cite{helios}, and the ubiquitous Transport Layer Security protocol (TLS) \cite{tls}. 
@@ -175,6 +175,7 @@ Prof. Rashid  ...
 
 
 This set of skills makes him especially suited to advise on practical aspects of software development and human factors that impact developer.
+
 
 Dr. Warinschi is a co-founder of the research area of computational soundness that links formal models and cryptographic security properties. Through his experience with cryptographic security definitions and proofs, he contributed to foundational work creating the security notions in use today for areas including group signatures and electronic voting. 
 These factors make him an ideal supervisor for those aspects of this project which deal with abstractions and formal security models. 
@@ -252,6 +253,7 @@ We note that while there is a lot of work on mental models of \emph{end-users} t
 \paragraph{Existent work.} We briefly survey existent work in this area, and highlight some of their drawbacks on which we plan to improve upon.
 
 %\clearpage
+
 \section{Proposed research and technical approach (2.5 pages)}
 
 \emph{The technical approach proposed should be novel with the potential for a doctoral student to make a scholarly contribution to the technical area. The research area must be included in the list of research areas within the scope of the Call listed in Appendix A. The proposed milestones should be ambitious but realistic.}
@@ -260,7 +262,6 @@ We note that while there is a lot of work on mental models of \emph{end-users} t
 
 
 %
-The project fits in the named research area 8. ``Building trusted and trustworthy systems''. 
 
 \subsection{Research hypothesis and objectives.}
 
@@ -279,6 +280,8 @@ We structure the research in the project along two distinct direction: a study o
 A third workpackage 
 
 
+
+
 \begin{description}\itemsep-3pt
 \item[WP 1] Mental models for developers with respect to security APIs and composition. 
 We will start with a study of mental models for software developers which will explain how they perceive and utilise the interface of typical security APIs (e.g. OAuth and TLS). 
@@ -290,10 +293,9 @@ We can study how well the mental models *align* with what is a *correct* model. 
 
 \item[WP 2] New abstractions. 
 
-In this work package we will capitalise on the work in \WP-1.  Having identified mismatches between  
-
-In this workpackage we will 
-design new abstractions which expose to developers functionality which is better aligned with their peception of security functionality, as captured by the models developed in the previous workpackage. 
+In this work package we will use the results of WP1 to develop improved interfaces to the libraries that implement security features. 
+Specifically, we will use the mental models developed in WP1 to identify gaps between how developers perceive the security guarantees offered by library components and the actualy guarantees that are offered. 
+These gaps will also suggest novel abstractions which expose to developers functionality which is better aligned with their peception of security functionality, as captured by the models developed in the previous workpackage. 
 
 We will provide both theoretical grounding (in the form of variations of existing security constructs or entirely new ones) and practical realizations in the form of improved APIs which reflect the new abstractions which we develop.  For instance, we envision that an implementer will be able to establish a secure channel between two parties by invoking a high-level command that hides almost entirely the underlying cryptographic mechanisms.  
 In particular, employing TLS will not require the implementer to set up parameters or ensure certificate validation.  
@@ -361,10 +363,34 @@ We envision an iterative process where the mental models developed in WP1 inspir
 %\end{ganttchart}
 %\end{center}
 
+
+\subsection*{Alignment with Research Areas in the Call}
+
+The proposed studentship is aligned with several of the research directions outlined in the call for proposals. The more pertinent ones are the following. 
+
+\begin{itemize}
+\item ``8. Building trusted and trustworthy systems'' through ``improved methods for the development or assessment of secure system' and also 
+``6. Strategic Technologies and Products" specifically via ''Research into the quality, prevalence, variation and utilisation of mitigation/safety features in coding platforms, especially given the uplift in new languages.'' 
+
+Our proposal addresses these issue head on. We seek to develop inproved APIs to security libraries which expose to developers abstractions that are better allighned with their intuition of the underlying security mechanism.  Such interfaces should facilitate software development which employs security features in ways that are less error-prone. 
+\item \bw{Perhaps a bit of a stretch} The project also intersects with  "2. Human-Centered Security and Security Analytics": Developer mental models can be seen as a way of capturing (potentially in a formal way) the culture around usage of security interfaces albeit by seeing the developer as a user of these interfaces. 
+\item 
+\end{itemize} 
+
+
+
+
+
+
+
+
+ 
+
+
 \section{Costs}
 The costs associated to this project are summarized in Figure~\ref{fig:costs}.  
 The costs associated to travel and subsistence include participation at conferences and summer schools for project members.
-
+\bw{I've added some completely made up costs for User study costs. We need to converge soon on these so that I can add them to the costing tool}
 \begin{figure}[h!t]
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|}
@@ -376,6 +402,8 @@ Fees & £4195 & £4290 & £4387 & 2243 \\
 GCHQ stipend & £22000 & £22500 & £23000 & £11750 \\
 \hline
 Travel and subsistence & 5000 & 5000 & 5000 & 2500 \\
+\hline
+User study costs & 2500 & 2500 & 2500 & 1000 \\
 %\hline
 %Other costs & 2500 & - & - & - \\
 \hline
