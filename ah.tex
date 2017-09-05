@@ -53,6 +53,12 @@
 \fi
 \usepackage[a4paper,margin=20mm,footskip=6mm,headsep=3mm]{geometry}
 
+\usepackage[scaled=0.94]{helvet}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage[T1]{fontenc}
+
+\usepackage{mdframed}
+
 %\usepackage[compact]{titlesec}
 %\titleformat{\subsection}[runin]{\normalfont\bfseries}{\thesection}{1em}{}
 %\titlespacing*{\subsection}{0pt}{2pt}{5pt}
@@ -68,7 +74,8 @@
 \date{}
 
 %\iffalse
-\title{\bf{Improved Security APIs via Developer Mental Models and Usable Abstractions}}
+\title{\bf{Usable Abstractions for Secure Programming\\ A Mental Models Approach}}
+% \title{\bf{Improved Security APIs via Developer Mental Models and Usable Abstractions}}
 % -- \ \ \ {\large Mental Models and Novel Abstractions \ \ \ } --}
 \author{\textit{Professor Awais Rashid and Professor Bogdan Warinschi, University of Bristol}}
 
@@ -84,7 +91,7 @@
 \section{Supervision}
 %\subsection*{External Collaboration}
 
-The proposed PhD studentship focuses on development of novel programming abstractions that improve the usability of security APIs (application programming interfaces). Specifically, it addresses the lack of understanding about developers' mental models regarding security APIs widely used to provide security of communication and information flows in contemporary applications. Existing research has highlighted that vulnerabilities arise in software due to \emph{misunderstanding} about how an API functions~\cite{nadi2016} or unintentional \emph{misconfiguration} of relevant security parameters~\cite{enck2011, fahl2012}. However, little is understood about developers' mental models that lead to such issues and the misalignment betweeen these mental models and the actual functionality the API offers and the underlying assumptions about how it ought to be used by developers. Studying developers' mental models of security APIs and any misalignment with \emph{correct} API usage -- as is the focus of this studentship -- will lead to design of new abstractions. Such abstractions will make it easier for developers to understand what the API functionality entails and how to use/deploy it within applications, hence improving the security of software by default. 
+The proposed PhD studentship focuses on development of novel programming abstractions that improve the usability of security APIs (application programming interfaces). Specifically, it addresses the lack of understanding about developers' mental models regarding APIs widely used to provide security of communication and information flows in contemporary applications. Existing research has highlighted that vulnerabilities arise in software due to \emph{misunderstanding} about how an API functions~\cite{nadi2016} or unintentional \emph{misconfiguration} of relevant security parameters~\cite{enck2011, fahl2012}. However, little is understood about developers' mental models that lead to such issues and the misalignment betweeen these mental models and the actual functionality the API offers and the underlying assumptions about how it ought to be used by developers. Studying developers' mental models of security APIs and any misalignment with \emph{correct} API usage -- as is the focus of this studentship -- will lead to design of new abstractions. Such abstractions will make it easier for developers to understand what the API functionality entails and how to use/deploy it within applications, hence improving the security of software by default. 
 
 The work will draw upon two leading experts from the Academic Centre of Excellence in Cyber Security Research (ACE-CSR) at Bristol: \textit{Professor Awais Rashid}\footnote{Professor Rashid and his group is moving to University of Bristol as of 1st of January 2018. Therefore, this proposal is being submitted from Bristol as discussed and agreed with NCSC.} who brings strong expertise in software engineering and human-centred approaches to cyber security and \textit{Professor Bogdan Warinschi} who is an expert on computational soundness, particularly on formal security models that deal with abstraction and cryptographic security properties. 
 
@@ -136,7 +143,7 @@ Security group.
 \fi
 
 
-\paragraph{Prof. Awais Rashid} is Professor of Cyber Security (from 1st of January 2018) at the University of Bristol. He has over 20 years of experience in inter-disciplinary research at the boundary of computer science and behavioural and social sciences. His research focuses on two key overlapping topics: studying adversarial and non-adversarial behaviours pertaining to cyber-security and security of cyber-physical infrastructures. He leads projects as part of two UK research institutes in cyber security (RITICS and RISCS), co-leads the Security and Safety theme within the UK Hub on Cyber Security of Internet of Things (PETRAS) and is a member of the UK Centre for Research and Evidence on Security Threats (CREST). He is also leading a project on research into developing a cyber security body of knowledge (CyBOK).
+\paragraph{Prof. Awais Rashid} is Professor of Cyber Security (from 1st of January 2018) at the University of Bristol. He has over 20 years of experience in inter-disciplinary research at the boundary of computer science and behavioural and social sciences. His research focuses on two key overlapping topics: studying adversarial and non-adversarial behaviours and security of cyber-physical infrastructures. He leads projects as part of two UK research institutes in cyber security (RITICS and RISCS), co-leads the Security and Safety theme within the UK Hub on Cyber Security of Internet of Things (PETRAS) and is a member of the UK Centre for Research and Evidence on Security Threats (CREST). He is also leading a project on research into developing a cyber security body of knowledge (CyBOK).
 
 Rashid has longstanding expertise on developing novel abstraction mechanisms to model and reason about software properties such as security, cost, reliability, etc. One of his early papers on modelling and analysing interactions amongst such properties~\cite{rashid2003} received the \textit{\textbf{10 years most influential paper award}} in 2013. His investigations into software qualities and bug patterns, e.g.,~\cite{greenwood2007, coelho2008}, have not only shaped further empirical studies on the topic by the wider research community but also the design of the Ptolemy programming language at Iowa State University. He currently leads the \pounds1M EPSRC project ``Why Johnny doesn't write secure software'' that is focusing on studying security behaviours of mobile and IoT app developers and design of interventions that may improve upon insecure behaviours. The project is, however, not studying developers' mental models regarding security APIs and how these contribute to security errors and mistakes. The proposed studentship is, therefore, complementary to the Johnny project.
 
@@ -146,7 +153,7 @@ His work on deceptive digital personas~\cite{rashid2013} was selected as one of 
 To date, he has supervised or co-supervised 18 PhD students to completion.
 
 
-\paragraph{Prof. Bogdan Warinschi} has joined the University of 
+\paragraph{Prof. Bogdan Warinschi} joined the University of 
 Bristol as a Lecturer in the Computer Science Department in February 2007. 
 He has a Ph.D. in Computer Science from the University of California
 at San Diego, and was previously affiliated as a postdoctoral researcher with
@@ -156,19 +163,19 @@ He conducts research into security and cryptography, with a particular emphasis 
 proof methods for the security of protocols.
 
 
-Dr. Warinschi served on more than thirty program committees, most recently on Security and Privacy '16, Eurocrypt'15 and Eurocrypt'14.  He is internationally known for helping establish the research area generically known as {\em computational   soundness}~\cite{micciancio04soundness,cortier05computationally}.
+Dr. Warinschi served on more than thirty program committees, most recently on Security and Privacy '16, Eurocrypt'15 and Eurocrypt'14.  He is internationally known for helping establish the research area generically known as {\em computational   soundness}~\cite{cortier05computationally,micciancio04soundness}.
 The basic idea is to combine two fundamentally different paradigms for proving security, one based on symbolic (formal methods-like) techniques and one based on complexity and computation theory. The main benefit of the approach is that it enables simpler design of tools for computer-aided verification that yields computational security guarantees. Part of the scientific underpining of this project relies on his expertise in this subject. 
 
-In addition to his expertise in the area of computational soundness, this proposal relies on the expertise of Prof. Warinschi in the design of security models and his interest in analysing systems used in practise.  In particular, Dr. Warinschi has maintained a constant interest in designing cryptographic security models, the first step towards the rigorous analysis of any cryptographic system. 
+In addition to his expertise in the area of computational soundness, this proposal relies on the expertise of Prof. Warinschi in the design of security models and his interest in analysing systems used in practice. In particular, he has maintained a constant interest in designing cryptographic security models, the first step towards the rigorous analysis of any cryptographic system. 
 His research addresses the security of group signatures \cite{BMW03}, proxy signatures \cite{proxies}, defence mechanisms for DOS resistance (cryptographic puzzles) \cite{puzzles},  key-exchange \cite{ke}, voting schemes \cite{helios}, and cryptographic APIs \cite{KSW11}.
 This work is complemented by security analysis that led to a better understanding of protocols and primitives that are in current use.  These include Public Key Infrastructures (PKI) \cite{boldyreva07acloser}, the Trusted Platform Module (TPM) \cite{pcas}, the Helios Internet voting schemes \cite{helios}, and the ubiquitous Transport Layer Security protocol (TLS) \cite{tls}. 
 
-To date, seven students have completed their PhD under the (co-)supervision of Dr.~Warinschi; he is currently (co-)supervising two 
+To date, seven students have completed their PhD under the (co-)supervision of Prof.~Warinschi; he is currently (co-)supervising two 
 students.
 
 
-\section{Context (2.5pages)}
-\emph{There should be a clear statement that shows the proposed studentship will be addressing an important research challenge in cyber security. It should be clear that the supervisors have a good awareness of current technical approaches and that important parts of the cyber security research challenge are not being addressed by the current range of techniques available.}
+\section{Context}
+% \emph{There should be a clear statement that shows the proposed studentship will be addressing an important research challenge in cyber security. It should be clear that the supervisors have a good awareness of current technical approaches and that important parts of the cyber security research challenge are not being addressed by the current range of techniques available.}
 
 
 \paragraph{Socio-economical context}
@@ -176,37 +183,37 @@ People and institutions surrender impressive amounts of sensitive data to a virt
 their control.
 %Society is highly dependent on virtual infrastructures that form what is generically known as the
 %``cyberspace".
-They purchase things on the web, communicate via cellular phones, store, share and utilize data kept on remote servers.
-Technological advances (e.g. the proliferation of mobile devices) and the drive for increased
-functionality (e.g. the advent of the Internet of Things, various health care initiatives) will
-strengthen our dependency on ``cyberspace".
+They purchase things on the web, communicate via cellular phones, store, share and utilise data kept on remote servers.
+Technological advances (e.g., the proliferation of mobile devices) and the drive for increased
+functionality (e.g., the advent of the Internet of Things, various health care initiatives) will
+strengthen our dependency on ``cyberspace''.
 The number of connected devices reached 6 billion in 2008 and it is estimated to increase to 50
 billion in the next five years.
 This infrastructure is supported by software that is developed and deployed at amazing rates. 
-Consider for example only the proliferation of mobile phone applications.
+Consider, for example only, the proliferation of mobile phone applications.
 There are now 1.5 million applications in Google Play app store and about the same
 number in Apple store.\footnote{\url{http://www.statista.com}}
-Some of these mobile phones incorporate components that deal with sensitive user data, e.g. credit cards numbers.   
+Some of these mobile phones incorporate components that deal with sensitive user data, e.g., credit cards numbers.   
 
 Given their increasingly important role and the opportunity for catastrophic failures that a
 networked world entails\footnote{
 Failures already lead to staggering amounts of trust, reputation, and monetary losses In 2011 EMC,
 the parent company of RSA Inc., spent USD 66 Mil. to replace potentially compromised secure tokens.
-} we need to hold applications against high security standards.
+}, we need to hold applications against high security standards.
 % In today's networked world, where attackers can remotely access devices and communication,
 %Increased dependency and reliance on the cyberspace will greatly amplify the disruptive effects of
 %failures.
 %To prevent disaster, 
 Regular reports of failures point to a perilous state of affairs. 
-Between 2012 and 2014 the traffic of the ubiquitous messaging application \textsf{WhatsApp},
+Between 2012 and 2014 the traffic of the ubiquitous messaging application \textsf{WhatsApp} 
 %currently by more than .7 billion users,
 was encrypted with a symmetric key computable by any third
-party.\footnote{\url{http://pastebin.com/g9UPuviz}}
+party\footnote{\url{http://pastebin.com/g9UPuviz}}.
 The communication with \textsf{Amazon, PayPal, Rackspace, Chase} via some existing commercial
 software can be easily intercepted by a malicious party~\cite{GIJABS12}.
 Software written for major commercial players already fails more often than desired.  Unsurprisingly, the average
 application fares much worse. 
-A recent study found that 88\% of some eleven thousand Android applications misuse cryptography in
+A recent study found that 88\% of some 11,000 Android applications misuse cryptography in
 ways that violate the most basic best practice and standard
 recommendations~\cite{egele13anempirical}.
 
@@ -219,36 +226,42 @@ Yet, they have to make decisions that require expertise at each of the different
 They need to select which cryptographic primitives to use, how to combine several cryptographic building blocks to obtain more advanced functionality and stronger guarantees, and ultimately have to integrate protocols themselves to fit together within the higher-level applications that employ them.
 
 
-Consider for example a basic client-server application where the client delegates to the server some computation and where it is desired that the communication stays secret (from third parties).
+Consider, for example, a basic client-server application where the client delegates to the server some computation and where it is desired that the communication stays secret (from third parties).
 An inexperienced designer would conclude that it suffices to simply encrypt the client-server communication. 
 There are however several other crucial yet non-obvious questions that need to be answered before concluding that  encryption is sufficient. 
 For example, the client needs to guarantee the identity of the server before it makes any query, encryptions should be authenticated~\cite{BN08}, replay of messages that were sent encrypted should not be possible, etc. 
 
 Employing protocols (rather than vanilla encryption) goes a long way towards avoiding many subtle pitfalls.  
-For example, when used with care, a secure channel protocol like the Transport Layer Security (TLS) takes care of entity and message authentication, integrity of the communication and so on.  Furthermore, good, widely vetted protocol implementations are readily available through libraries.  However, using these libraries faces a designer/implementer with further challenges.   The APIs of these libraries are complex and unintuitive, require users to set often obscure parameters, and select between many possible configurations -- some secure, some insecure!  Many attacks are in fact due to incompetent uses of existing libraries  \cite{GIJABS12}. 
+For example, when used with care, a secure channel protocol like the Transport Layer Security (TLS) takes care of entity and message authentication, integrity of the communication and so on.  Furthermore, good, widely vetted protocol implementations are readily available through libraries.  However, a developer using these libraries is faced with further challenges.  The APIs of these libraries are complex and unintuitive, require users to set often obscure parameters, and select between many possible configurations -- some secure, some insecure!  Many attacks are in fact due to incompetent uses of existing libraries~\cite{GIJABS12}. 
 
-\bw{The next two paragraphs seem a bit mixed up -- perhaps we can discuss a bit of restructuring here.}
-
-\paragraph{Contributions compared to state-of-the-art} 
-\bw{Recent work has started looking more closely of the source of the problem}
+\paragraph{Usability issues of security APIs.} 
+Recent work has started to more closely look at the source of the problem 
  and by now a number of studies, such as~\cite{enck2011, fahl2012, fischer2017}, have highlighted the problems of unintentional API misuse by developers leading to vulnerabilities. However, such works have not explored the mental models that lead to misuse and how the abstractions used in the APIs shape such mental models. Although research exists on supporting end users in software engineering activities~\cite{ko2011}, the security mental models of end user developers remain unaddressed. 
 
 Recent work in Rashid's group~\cite{weir2016} has highlighted that app developers had a tendency to avoid security issues and concentrate on delivering functionality. A further analysis demonstrated that developers best learn through a challenge-based approach whereby various stakeholders, e.g., testing teams, business teams, peers, and automated tools, e.g., static and dynamic analysis, help them understand and learn about security~\cite{weir2017}. These studies demonstrate the need for a deeper understanding of developers' mental models of security APIs. 
 
 Other work, such as~\cite{ferreira2016}, has highlighted how multiple feature choices in code (e.g., through if-def statements), lead to increased vulnerabilities -- most likely arising from the need to reason about complex configurations.
-Recent work has also demonstrated the complexity of using authentication and cryptography APIs~\cite{acar2017} and argued for their simplification~\cite{arzt2015, nadi2016}. Within the proposed studentship, we focus on the foundations that would underpin such simplification -- by developing a deep understanding of developers' mental models of such APIs and using this understanding as a basis of new abstractions to realign/improve such mental models.
+Recent work has also demonstrated the complexity of using authentication and cryptography APIs~\cite{acar2017} and argued for their simplification~\cite{arzt2015, nadi2016}. 
 
-\paragraph{Mismatch between developers' mental models and actual API functionality}
+\begin{mdframed}
+Within the proposed studentship, we focus on the foundations that would underpin such simplification -- by developing a deep understanding of developers' mental models of such APIs and using this understanding as a basis of new abstractions to realign/improve such mental models.
+\end{mdframed}
+
+\paragraph{Existing research on mental models of security.}
 The above discussion highlights various mismatches between how developers perceive the security delivered by security constructs (as available, e.g. through the APIs of standard cryptographic libraries) and the guarantees that these actually offer. 
 
-A number of researchers have adopted the mental models approach to understand how non-expert users perceive privacy and security. Wash has examined how home computer users make their security decisions and how that affects their use of security advice~\cite{wash2010folk}. He identified eight (8) mental models, ``folk models'', of security threats that users constructed and how these models can be used to justify why home computer users ignore security advice. Camp proposed five (5) possible models that could be used to communicate complex security to normal users~\cite{camp2009mental}. Both Wash and Camp found that users want security but, in different situations, their desire to have security also depends on how they understand and perceive risk. Using a mental model approach, Bravo-Lillo et al.~\cite{bravo2011bridging} conducted studies to gain an understanding of how users perceive and respond to computer alerts while Ur et al. examined whether users' mental models of password security matched reality~\cite{ur2016users}. Recent work in Rashid's group has examined users' mental models of deletion in the cloud and the challenges and coping strategies resulting from incomplete mental models of the cloud and deletion in such a context~\cite{ramokapane2017}. Some studies have also compared how the mental models of experts and non-experts differ, for example,~\cite{ion2015no}. However, all these works have focused on mental models of \emph{end-users}. To date there are no studies that have explored \emph{developers'} mental models of security APIs\textemdash that is, what are these mental models, how they differ from what would be deemed \emph{correct} usage of an API and its functionality and what abstractions might help re-align or improve these mental models.  
+A number of researchers have adopted the mental models approach to understand how non-expert users perceive privacy and security. Wash has examined how home computer users make their security decisions and how that affects their use of security advice~\cite{wash2010folk}. He identified eight (8) mental models, ``folk models'', of security threats that users constructed and how these models can be used to justify why home computer users ignore security advice. Camp proposed five (5) possible models that could be used to communicate complex security to normal users~\cite{camp2009mental}. Both Wash and Camp found that users want security but, in different situations, their desire to have security also depends on how they understand and perceive risk. Using a mental model approach, Bravo-Lillo et al.~\cite{bravo2011bridging} conducted studies to gain an understanding of how users perceive and respond to computer alerts while Ur et al. examined whether users' mental models of password security matched reality~\cite{ur2016users}. Recent work in Rashid's group has examined users' mental models of deletion in the cloud and the challenges and coping strategies resulting from incomplete mental models of the cloud and deletion in such a context~\cite{ramokapane2017}. Some studies have also compared how the mental models of experts and non-experts differ, for example,~\cite{ion2015no}. 
 
+\begin{mdframed}
+
+All these works have focused on mental models of \emph{end-users}. To date there are no studies that have explored \emph{developers'} mental models of security APIs\textemdash that is, what are these mental models, how they differ from what would be deemed \emph{correct} usage of an API and its functionality and what abstractions might help re-align or improve these mental models.  
+\end{mdframed}
 
 %\clearpage
 
-\section{Proposed research and technical approach (2.5 pages)}
+\section{Proposed research and technical approach}
 
-\emph{The technical approach proposed should be novel with the potential for a doctoral student to make a scholarly contribution to the technical area. The research area must be included in the list of research areas within the scope of the Call listed in Appendix A. The proposed milestones should be ambitious but realistic.}
+% \emph{The technical approach proposed should be novel with the potential for a doctoral student to make a scholarly contribution to the technical area. The research area must be included in the list of research areas within the scope of the Call listed in Appendix A. The proposed milestones should be ambitious but realistic.}
 
 
 
@@ -261,67 +274,51 @@ Security APIs are key to the robustness of deployed systems in face of malicious
 Yet there is by now mounting evidence of widespread misuse so eggregious that  completely undermines the desired guarantees.  The overarching aim of this project is to determine the cause and then finding ways to reduce or even eliminate such errors. 
 
 The central research hypothesis that underlies this project is that many errors are due to a mismatch between developers' perception and actual guarantees that APIs offer. Furthermore, we expect that this mismatch can be determined through qualitative studies eliciting mental models of how developers use security API.
-Our second research hypotesis (which naturally follows from the previous one) is that APIs can be improved through better abstractions which better reflect developer expectations of the underlying security functionality, thus closing the gap captured by said mental models.  
+Our second research hypothesis (which naturally follows from the previous one) is that APIs can be improved through better abstractions which better reflect developer expectations of the underlying security functionality, thus closing the gap captured by said mental models.  
 
-Two major objectives follow from the above discussion: 
+Three major objectives follow from the above discussion: 
 \begin{itemize}
 \item[O1:] To study mental models for how developers use security APIs.
 
 \item[O2:] To identify the misalignment between these mental models and correct usage of the API (in other words, the mental model \textit{assumed} by the designer of the API).
 
-\item[O2:] To develop improved abstractions that are more usable and cultivate correct mental models of the APIs in question.
+\item[O3:] To develop improved abstractions that are more usable and cultivate correct mental models of the APIs in question.
 \end{itemize}
-
-\bw{Shouldn't we say there's three objetives?  It looks strange to have three items :)}
 
 
 \subsection*{Project structure and methodology}
 
 
-We structure the research in the project along two distinct direction: a study of mental models of developers with respect to security APIs and the development of novel abstractions for security functionality.  These two research directions naturaly translate to a corresponding workpackage. 
+We structure the research in the project along two distinct direction: a study of mental models of developers with respect to security APIs and the development of novel abstractions for security functionality.  These two research directions naturaly translate to a corresponding workpackage each. 
 A third workpackage crosscuts these two work-packages to provide iterative evaluation of the abstractions in terms of their usability and effectiveness with respect to secure software development.
 
-
 \begin{description}\itemsep-3pt
+
 \item[WP 1] \textbf{Mental models of developers with respect to security APIs.}
 
 We will start with a study of mental models of software developers which will explain how they perceive and utilise the interface of typical security APIs. In order to scope the project, we will initially focus on OAuth and TLS - and their implementations in widely used programming languages such as Java and Python. As the work progresses, and depending on the level of coverage needed as the student undertakes studies of developers, other APIs and/or programming languages will be added.
 
 To study the mental models of developers with respect to the current APIs, we will undertake baseline studies within Year 1. These will be task-based studies conducted in a lab setting utilising the University of Bristol teaching labs. We anticipate conducting two studies in year 1: first with a student population recruited from undergraduate and postgraduate programmes in computer science and engineering. We would expect to reach a population size of 50 subjects for such a study. Such a student population will provide a good sample of novice or relatively inexperienced developers. A second baselining study will involve developers working in industry recruited through the network of contacts built in the Johnny project. We expect to recruit around 20-30 subjects for this second study.
 
-The participants for both baselining studies will be pre-screened through a questionnaire to ensure as balanced a representation as possible of different genders, socio-economic backgrounds and technical knowledge \& experience. Participants will be interviewed at the start of the study to develop an overall understanding of their security development practices. They will then complete a set of programming tasks requiring them to use the aforementioned APIs. We will use a think-aloud protocol -- asking them to articulate what they are doing, what is their understanding of the API functionality and configuration parameters, issues they encounter and the coping strategies they use. We will complement this with our own observation of the participants as they programme. There will be a debriefing at the end of the task -- this will enable us to elicit how the API design may change to mitigate issues faced by the participants.
+The participants for both baselining studies will be pre-screened through a questionnaire to ensure as balanced a representation as possible of different genders, socio-economic backgrounds and technical knowledge \& experience. Participants will be interviewed at the start of the study to develop an overall understanding of their security development practices. They will then complete a set of programming tasks requiring them to use the aforementioned APIs. We will use a think-aloud protocol -- asking them to articulate what they are doing, what is their understanding of the API functionality and configuration parameters, issues they encounter and the coping strategies they use. We will complement this with our own observation of the participants as they undertake the programming tasks. There will be a debriefing at the end of the task -- this will enable us to elicit how the API design may change to mitigate issues faced by the participants.
 
 The data from these baselining studies will be analysed to derive the mental models that developers have about the APIs in question and how well they \emph{align} (or otherwise) with what would be deemed \emph{correct} usage of the API. We will use a grounded theory approach for the purpose -- as has been the case in recent work~\cite{ramokapane2017}. We will represent the resulting mental models as graphs whereby nodes represent programming abstractions (e.g., classes, methods and attributes) and edges represent execution sequences or information flow between these. We will also model the correct execution and information flow sequences as assumed by the API. These will then be analysed to identify the misalignment that may exist between developers' mental models and those assumed by the API designers. These insights will provide input to the work to be carried out in WP2.
 
-As work in WP2 progresses, we will repeat the in-lab studies with both student and professional developers to study if the new abstractions indeed lead to realignment or improvement of the mental models. In certain cases, the new abstractions may lead to new yet incorrect mental models. These will be highly invaluable insights -- leading to redesign of the abstractions in WP2 and repetition of the studies. We expect to run four such studies - two in year 2 and two in year 3.
-
-\subparagraph{Milestones.} 
-
-\begin{itemize}
-
-\item[M1.1:] Report on systematic literature review on developer errors leading to security and current body of knowledge in this area \textit{(Month 6)}.
-
-\item[M1.2:] Design of the baseline studies, including ethics approval \textit{(Month 6)}.
-
-\item[M1.3:] Baselining studies completed and data analysed \textit{(Month 12)}.
-
-\item[M1.4] Design of and execution of studies to elicit and analyse mental models resulting from new abstractions in WP2 \textit{(Months 18, 24, 30, 36)}.
-
-\end{itemize} 
+As work in WP2 progresses, we will repeat the in-lab studies with both student and professional developers to study if the new abstractions indeed lead to realignment or improvement of the mental models. In certain cases, the new abstractions may lead to new yet incorrect mental models. These will be highly invaluable insights -- leading to redesign of the abstractions in WP2 and repetition of the studies. We expect to run at least two such iterations, that is, a new set of abstractions will be evaluated with student subjects and professional developers, the abstractions redesigned and another set of studies with students and professionals conducted.
 
 \vspace{.3cm}
 
 \item[WP 2] \textbf{New abstractions and realisations.} 
 
 In this three-stage work package we will use the results of WP1 to develop improved interfaces to the libraries that implement security features.  
-In the first stage we will use the mental models developed in WP1 to identify disparities between how developers perceive the security guarantees offered by library components and the actualy guarantees that are offered. The gaps will suggest novel abstractions which expose to developers functionality which is better aligned with their peception of security functionality, as captured by the models developed in the previous workpackage. 
-For instance, we envision that a developer will be able to establish a secure channel between two parties by invoking a high-level command that hides almost entirely the underlying cryptographic mechanisms.   In particular, employing TLS will not require the implementer to set up parameters or ensure certificate validation, thus avoiding for instance the problems identified in~\cite{GIJABS12}. 
+In the first stage we will use the mental models developed in WP1 to identify disparities between how developers perceive the security guarantees offered by library components and the actual guarantees that are offered. The gaps will suggest novel abstractions which expose to developers functionality which is better aligned with their peception of security functionality, as captured by the models developed in the previous workpackage. 
+For instance, we envision that a developer will be able to establish a secure channel between two parties by invoking a high-level command that hides almost entirely the underlying cryptographic mechanisms.   In particular, employing TLS will not require the implementer to set up parameters or ensure certificate validation, thus avoiding, for instance, the problems identified in~\cite{GIJABS12}. 
 
 In the next stage we will provide theoretical grounding, for example in the form of variations of existing security constructs or entirely new ones.  As standard in modern security and cryptographic practice, we will develop rigorous mathematical models that capture the security guarantees of the newly proposed abstractions and explain how they can be achieved (e.g. by using already existing functionality).  
 
 
- The third stage we will provide practical realizations in the form of improved APIs which reflect the new abstractions which we will develop.  
-Examples that we can use is the work by Bond et al.~\cite{bond2013low} in the context of APIs to HSMs or the more recent work by Boldyreva, Patton and Shrimpton~\cite{C:BolPatShr17} who show how to employ existing APIs to standard cryptographic library to implement more advanced functionality.
+ The third stage we will provide practical realisations in the form of improved APIs which reflect the new abstractions which we will develop.  
+Examples that we can use is the work by Bond et al.~\cite{bond2013low} in the context of APIs to HSMs or the more recent work by Boldyreva, Patton and Shrimpton~\cite{C:BolPatShr17} who show how to employ existing APIs to a standard cryptographic library to implement more advanced functionality.
 \vspace{.3cm}
 \iffalse
 Technically, we will provide wrappers to some of the most commonly used libraries.  
@@ -330,49 +327,54 @@ We remark that improved APIs is one of the feature of the NaCl cryptographic lib
 
 
 
-
 \vspace{-\baselineskip}
-\subparagraph{Milestones.}
-
-\begin{itemize}
-
-\item[M2.1:] Design and formal analysis of novel abstractions for selected security functionality \textit{(Month 18)}.
-
-\item[M2.2:] Implementation of novel abstractions for selected security functionality \textit{(Month 24)}.
-
-\end{itemize}
 
 \vspace{.3cm}
 
 \item[WP 3] \textbf{Evaluation.}
 
 The evaluation workpackage will run alongside and act as liason between workpackages WP1 and WP2.  
-As noted above, we envision an iterative process where the mental models developed in WP1 inspire the abstractions developed in WP2, which on the one hand can be benchmarked against the models and on the other lead to refinement of the abstractions. As the abstractions developed through this iterative process crystalise, we will undertake crowdsourced studies of our new abstractions -- by utilising developer communities online on Github and StackOverflow. We will conduct online studies through existing platforms, e.g., one has recently been developed by Sascha Fahl's group~\cite{stransky2017}. These crowdsourced studies will provide insights into the usability of our abstractions and complement the studies within WP1, which are focused on deriving and studying the mental models of developers. \ar{Should we give more details here?}
-\bw{I don't think so: it seems pretty clear what's in this WP. Perhaps we can spell out outcomes in the milestones below? }
-
-\vspace{-\baselineskip}
-\subparagraph{Milestones.}
-
-\begin{itemize}
-
-\item[M3.1:] Design of first crowdsourcing study, including ethics approval \textit{(Month 18)}.
-
-\item[M3.2:] First crowdsourcing study executed and data analysed \textit{(Month 24)}.
-
-\item[M3.4:] Design of second crowdsourcing study, including ethics approval \textit{(Month 30)}.
-
-\item[M3.2:] Second crowdsourcing study executed and data analysed \textit{(Month 36)}.
-
-\end{itemize}
-
+As noted above, we envision an iterative process where the mental models developed in WP1 inspire the abstractions developed in WP2, which on the one hand can be benchmarked against the models and on the other lead to refinement of the abstractions. As the abstractions developed through this iterative process crystalise, we will undertake crowdsourced studies of our new abstractions -- by utilising developer communities online on Github and StackOverflow. We will conduct online studies through existing platforms, e.g., one has recently been developed by Sascha Fahl's group~\cite{stransky2017}. These crowdsourced studies will provide insights into the usability of our abstractions and complement the studies within WP1, which are focused on deriving and studying the mental models of developers. 
 
 \end{description}
 
+\vspace{-\baselineskip}
 
-\textit{Month 37-42}. No tasks or milestones are planned for months 37-42 as the student will use the final six months for writing up the thesis.
 
+\subsection*{Milestones} 
 
-We summarise the workplan in the following chart:
+% \begin{table}
+
+% \centering
+
+\begin{tabular}{|p{2cm}|p{12cm}|p{2cm}|}
+\hline
+\textbf{Milestone} & \textbf{Description} & \textbf{Due Date}\\
+\hline
+\hline
+M1 & Report on systematic literature review on developer errors leading to security and current body of knowledge in this area & Month 6\\
+\hline
+M2 & Baselining studies completed and data analysed & Month 12\\
+\hline
+M3 & Design and formal analysis of novel abstractions for selected security functionality & Month 18\\
+\hline
+M4 & Implementation of novel abstractions for selected security functionality (Version 1) & Month 24\\
+\hline
+M5 & Studies to elicit and analyse mental models resulting from new abstractions (Version 1) completed and data analysed  & Month 28\\
+\hline
+M6 & First crowdsourcing study to evaluate usability of new abstractions (Version 1) completed and data analysed & Month 28\\
+\hline
+M7 & Implementation of novel abstractions for selected security functionality (Version 2) & Month 3\\
+\hline
+M8 & Studies to elicit and analyse mental models resulting from new abstractions (Version 2) completed and data analysed  & Month 36\\
+\hline
+M9 & Second crowdsourcing study to evaluate usability of new abstractions (Version 2) completed and data analysed & Month 36\\
+\hline
+M10 & Thesis write-up and submission & Month 42\\
+\hline
+\end{tabular}
+% \end{table}
+
 
 \iffalse
 
@@ -433,7 +435,7 @@ The project tackles the usability issues faced by developers as end-users of sec
 \item ``8. Building trusted and trustworthy systems'' through ``improved methods for the development or assessment of secure system' and also 
 ``6. Strategic Technologies and Products" specifically via ''Research into the quality, prevalence, variation and utilisation of mitigation/safety features in coding platforms, especially given the uplift in new languages.'' 
 
-Our proposal addresses these issue head on. We seek to develop inproved APIs to security libraries which expose to developers abstractions that are better allighned with their intuition of the underlying security mechanism.  Such interfaces should facilitate software development which employs security features in ways that are less error-prone. 
+Our proposal addresses these issues head on. We seek to develop inproved APIs to security libraries which expose to developers abstractions that are better aligned with their intuition of the underlying security mechanism.  Such interfaces should facilitate software development which employs security features in ways that are less error-prone. 
 
 \end{itemize} 
 
@@ -448,23 +450,23 @@ Our proposal addresses these issue head on. We seek to develop inproved APIs to 
 
 
 \section{Costs}
-The costs associated to this project are summarized in Figure~\ref{fig:costs}.  
+The costs associated with this project are summarized in Figure~\ref{fig:costs}.  
 The costs associated with travel and subsistence include participation at conferences and summer schools for the student as well as visits to the network of collaborators in the UK and internationally. In addition, we request funds to cover study costs, including a small participation fee for each subject and the cost of transcription using a reputable external provider. These costs are estimated on the basis of the studies to be conducted in WP1. We anticipate the crowdsourced studies in WP3 to be quantitative by nature and hence not require transcription. No specific costs are requested for these.
 
 
 \begin{figure}[h!t]
 \begin{center}
-\begin{tabular}{|c|c|c|c|c|}
+\begin{tabular}{|r|r|r|r|r|}
 \hline 
 & {\bf Year 1} &{\bf Year 2}&{\bf Year 3}&{\bf Year 4}\\
 \hline
-Fees & £4195 & £4290 & £4387 & 2243 \\
+Fees & \pounds4195 & \pounds4290 & \pounds4387 & \pounds2243 \\
 \hline
-GCHQ stipend & £22000 & £22500 & £23000 & £11750 \\
+GCHQ stipend & \pounds22000 & \pounds22500 & \pounds23000 & \pounds11750 \\
 \hline
-Travel and subsistence & 5000 & 5000 & 5000 & 2500 \\
+Travel and subsistence & \pounds5000 & \pounds5000 & \pounds5000 & \pounds2500 \\
 \hline
-User study costs & 4000 & 3500 & 3500 & 0 \\
+Costs of user studies & \pounds4000 & \pounds3500 & \pounds3500 & 0 \\
 %\hline
 %Other costs & 2500 & - & - & - \\
 \hline
