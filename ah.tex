@@ -244,7 +244,7 @@ Other work, such as~\cite{ferreira2016}, has highlighted how multiple feature ch
 Recent work has also demonstrated the complexity of using authentication and cryptography APIs~\cite{acar2017} and argued for their simplification~\cite{arzt2015, nadi2016}. Within the proposed studentship, we focus on the foundations that would underpin such simplification -- by developing a deep understanding of developers' mental models of such APIs and using this understanding as a basis of new abstractions to realign/improve such mental models.
 
 \paragraph{Mismatch between developers' mental models and actual API functionality}
-The discussion highlights various mismatches between how developers perceive the security delivered by security constructs (as available, e.g. through the APIs of standard cryptographic libraries) and the guarantees that these actually offer. 
+The above discussion highlights various mismatches between how developers perceive the security delivered by security constructs (as available, e.g. through the APIs of standard cryptographic libraries) and the guarantees that these actually offer. 
 
 A number of researchers have adopted the mental models approach to understand how non-expert users perceive privacy and security. Wash has examined how home computer users make their security decisions and how that affects their use of security advice~\cite{wash2010folk}. He identified eight (8) mental models, ``folk models'', of security threats that users constructed and how these models can be used to justify why home computer users ignore security advice. Camp proposed five (5) possible models that could be used to communicate complex security to normal users~\cite{camp2009mental}. Both Wash and Camp found that users want security but, in different situations, their desire to have security also depends on how they understand and perceive risk. Using a mental model approach, Bravo-Lillo et al.~\cite{bravo2011bridging} conducted studies to gain an understanding of how users perceive and respond to computer alerts while Ur et al. examined whether users' mental models of password security matched reality~\cite{ur2016users}. Recent work in Rashid's group has examined users' mental models of deletion in the cloud and the challenges and coping strategies resulting from incomplete mental models of the cloud and deletion in such a context~\cite{ramokapane2017}. Some studies have also compared how the mental models of experts and non-experts differ, for example,~\cite{ion2015no}. However, all these works have focused on mental models of \emph{end-users}. To date there are no studies that have explored \emph{developers'} mental models of security APIs\textemdash that is, what are these mental models, how they differ from what would be deemed \emph{correct} usage of an API and its functionality and what abstractions might help re-align or improve these mental models.  
 
@@ -265,14 +265,16 @@ A number of researchers have adopted the mental models approach to understand ho
 Security APIs are key to the robustness of deployed systems in face of malicious attackers. 
 Yet there is by now mounting evidence of widespread misuse so eggregious that it completely undermines the desired guarantees.  The overarching aim of this project is to determine the cause and then finding ways to reduce or even eliminate such errors. 
 
-The central research hypothesis that underlies this project is that many errors are due to a mismatch between developers' perception and actual guarantees that APIs offer. Furthermore, we expect that this mismatch can be qualitatively, or even quantitatively certified by using mental models of how developers use security API.
+The central research hypothesis that underlies this project is that many errors are due to a mismatch between developers' perception and actual guarantees that APIs offer. Furthermore, we expect that this mismatch can be determined through qualitative studies eliciting mental models of how developers use security API.
 Our second research hypotesis (which naturally follows from the previous one) is that APIs can be improved through better abstractions which better reflect developer expectations of the underlying security functionality, thus closing the gap captured by said mental models.  
 
 Two major objectives follow from the above discussion: 
 \begin{itemize}
-\item[O1:] to build mental models for how developers use security APIs.
+\item[O1:] To study mental models for how developers use security APIs.
 
-\item[O2:] to develop improved APIs which match more closely developer's expectations.
+\item[O2:] To identify the misalignment between these mental models and correct usage of the API (in other words, the mental model \textit{assumed} by the designer of the API).
+
+\item[O2:] To develop improved abstractions that are more usable and cultivate correct mental models of the APIs in question.
 \end{itemize}
 
 
@@ -298,6 +300,17 @@ As work in WP2 progresses, we will repeat the in-lab studies with both student a
 
 \subparagraph{Milestones.} 
 
+\begin{itemize}
+
+\item[M1.1:] Report on systematic literature review on developer errors leading to security and current body of knowledge in this area \textit{(Month 6)}.
+
+\item[M1.2:] Design of the baseline studies, including ethics approval \textit{(Month 6)}.
+
+\item[M1.3:] Baselining studies completed and data analysed \textit{(Month 12)}.
+
+\item[M1.4] Design of and execution of studies to elicit and analyse mental models resulting from new abstractions in WP2 \textit{(Months 18, 24, 30, 36)}.
+
+\end{itemize} 
 
 \item[WP 2] \textbf{New abstractions and realisations.} 
 
@@ -316,6 +329,11 @@ Technically, we will provide wrappers to some of the most commonly used librarie
 We remark that improved APIs is one of the feature of the NaCl cryptographic library~\cite{bernstein}; currently that library only considers lower level primitives.  
 \fi
 
+\subparagraph{Milestones}
+Year two will result in two related but distinct milestones \textbf{M2:} novel abstractions and their theoretical analysis and \textbf{M3:} improved API for (selected) security functionality. 
+\ar{I moved this here. I have done milestones per work-package. Perhaps we can integrate them but I thought it would be good if they could see what comes out of the research in each work-package}
+
+
 \item[WP 3] \textbf{Evaluation.}
 
 The evaluation workpackage will run alongside and act as liason between workpackages WP1 and WP2.  
@@ -325,22 +343,23 @@ As noted above, we envision an iterative process where the mental models develop
 \vspace{-\baselineskip}
 \subparagraph{Milestones.}
 
-We expect that at the end of year one we will have met the first milestone, \textbf{M1:} developed base models for novice and expert users together witih an analysis of the gaps that these models will highlight in developer's mental image of (selected) security functionality.
+\begin{itemize}
 
-Year two will result in two related but distinct milestones \textbf{M2:} novel abstractions and their theoretical analysis and \textbf{M3:} improved API for (selected) security functionality. 
+\item[M3.1:] Design of first crowdsourcing study, including ethics approval \textit{(Month 18)}.
 
-\bw{We need to also introduce the two studies here somehow.}
+\item[M3.2:] First crowdsourcing study executed and data analysed \textit{(Month 24)}.
 
-In year three we will validate the APIs and the models that we have developed resulting in refined versions of \textbf{M1,M3}.
+\item[M3.4:] Design of second crowdsourcing study, including ethics approval \textit{(Month 30)}.
 
+\item[M3.2:] Second crowdsourcing study executed and data analysed \textit{(Month 36)}.
+
+\end{itemize}
 
 
 \end{description}
 
 
-
-\subparagraph{Milestones.}
-
+\textit{Month 37-42}. No tasks or milestones are planned for months 37-42 as the student will use the final six months for writing up the thesis.
 
 
 %We summarise the workplan in the following chart:
