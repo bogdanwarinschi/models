@@ -146,30 +146,22 @@ His work on deceptive digital personas~\cite{rashid2013} was selected as one of 
 To date, he has supervised or co-supervised 18 PhD students to completion.
 
 
-\paragraph{Prof. Bogdan Warinschi.}
-Prof.~Warinschi, has joined the University of 
+\paragraph{Prof. Bogdan Warinschi} has joined the University of 
 Bristol as a Lecturer in the Computer Science Department in February 2007. 
 He has a Ph.D. in Computer Science from the University of California
 at San Diego, and was previously affiliated as a postdoctoral researcher with
 University of California at Santa Cruz, Stanford University, and the
 French National Research Institute in Informatics (INRIA).
-He conducts research into cryptography, with a particular emphasis on
+He conducts research into security and cryptography, with a particular emphasis on
 proof methods for the security of protocols.
 
 
-Dr. Warinschi served on more than thirty program committees, most recently on Security and Privacy '11, CCS'11 and CCS'12. 
-He was the programme chair of the Formal and Computational Cryptography (FCC'12) workshop. 
-The workshop is dedicated to an area of cryptography called {\em computational   soundness} which Dr. Warinschi had helped establish~\cite{micciancio04soundness,cortier05computationally}.
-The basic idea is to combine two fundamentally different paradigms for proving security, one based on symbolic (formal methods-like) techniques and one based on complexity and computation theory. The main benefit of the approach is that it enables simpler design of tools for computer-aided verification that yields computational security guarantees.
-Part of the scientific underpining of this project relies on his expertise in this subject. 
+Dr. Warinschi served on more than thirty program committees, most recently on Security and Privacy '16, Eurocrypt'15 and Eurocrypt'14.  He is internationally known for helping establish the research area generically known as {\em computational   soundness}~\cite{micciancio04soundness,cortier05computationally}.
+The basic idea is to combine two fundamentally different paradigms for proving security, one based on symbolic (formal methods-like) techniques and one based on complexity and computation theory. The main benefit of the approach is that it enables simpler design of tools for computer-aided verification that yields computational security guarantees. Part of the scientific underpining of this project relies on his expertise in this subject. 
 
-In addition to his expertise in the area of computational soundness, this proposal relies on the expertise of Prof. Warinschi in the design of security models and his interest in analysing systems used in practise.
-In particular, Dr. Warinschi has maintained a constant interest in designing cryptographic security models, the first step towards the rigorous analysis of any cryptographic system. 
+In addition to his expertise in the area of computational soundness, this proposal relies on the expertise of Prof. Warinschi in the design of security models and his interest in analysing systems used in practise.  In particular, Dr. Warinschi has maintained a constant interest in designing cryptographic security models, the first step towards the rigorous analysis of any cryptographic system. 
 His research addresses the security of group signatures \cite{BMW03}, proxy signatures \cite{proxies}, defence mechanisms for DOS resistance (cryptographic puzzles) \cite{puzzles},  key-exchange \cite{ke}, voting schemes \cite{helios}, and cryptographic APIs \cite{KSW11}.
 This work is complemented by security analysis that led to a better understanding of protocols and primitives that are in current use.  These include Public Key Infrastructures (PKI) \cite{boldyreva07acloser}, the Trusted Platform Module (TPM) \cite{pcas}, the Helios Internet voting schemes \cite{helios}, and the ubiquitous Transport Layer Security protocol (TLS) \cite{tls}. 
-
-%This proposal is perfectly aligned with Dr. Warinschi's expertise in the design of security models, his proficiency and interest in analysing systems used in practise, and his work on computational soundness for enabling tools for security analysis.
-
 
 To date, seven students have completed their PhD under the (co-)supervision of Dr.~Warinschi; he is currently (co-)supervising two 
 students.
@@ -235,8 +227,11 @@ For example, the client needs to guarantee the identity of the server before it 
 Employing protocols (rather than vanilla encryption) goes a long way towards avoiding many subtle pitfalls.  
 For example, when used with care, a secure channel protocol like the Transport Layer Security (TLS) takes care of entity and message authentication, integrity of the communication and so on.  Furthermore, good, widely vetted protocol implementations are readily available through libraries.  However, using these libraries faces a designer/implementer with further challenges.   The APIs of these libraries are complex and unintuitive, require users to set often obscure parameters, and select between many possible configurations -- some secure, some insecure!  Many attacks are in fact due to incompetent uses of existing libraries  \cite{GIJABS12}. 
 
+\bw{The next two paragraphs seem a bit mixed up -- perhaps we can discuss a bit of restructuring here.}
+
 \paragraph{Contributions compared to state-of-the-art} 
-A number of studies, such as~\cite{enck2011, fahl2012, fischer2017}, have highlighted the problems of unintentional API misuse by developers leading to vulnerabilities. However, such works have not explored the mental models that lead to misuse and how the abstractions used in the APIs shape such mental models. Although research exists on supporting end users in software engineering activities~\cite{ko2011}, the security mental models of end user developers remain unaddressed. 
+\bw{Recent work has started looking more closely of the source of the problem}
+ and by now a number of studies, such as~\cite{enck2011, fahl2012, fischer2017}, have highlighted the problems of unintentional API misuse by developers leading to vulnerabilities. However, such works have not explored the mental models that lead to misuse and how the abstractions used in the APIs shape such mental models. Although research exists on supporting end users in software engineering activities~\cite{ko2011}, the security mental models of end user developers remain unaddressed. 
 
 Recent work in Rashid's group~\cite{weir2016} has highlighted that app developers had a tendency to avoid security issues and concentrate on delivering functionality. A further analysis demonstrated that developers best learn through a challenge-based approach whereby various stakeholders, e.g., testing teams, business teams, peers, and automated tools, e.g., static and dynamic analysis, help them understand and learn about security~\cite{weir2017}. These studies demonstrate the need for a deeper understanding of developers' mental models of security APIs. 
 
@@ -263,7 +258,7 @@ A number of researchers have adopted the mental models approach to understand ho
 \subsection*{Research hypothesis and objectives.}
 
 Security APIs are key to the robustness of deployed systems in face of malicious attackers. 
-Yet there is by now mounting evidence of widespread misuse so eggregious that it completely undermines the desired guarantees.  The overarching aim of this project is to determine the cause and then finding ways to reduce or even eliminate such errors. 
+Yet there is by now mounting evidence of widespread misuse so eggregious that  completely undermines the desired guarantees.  The overarching aim of this project is to determine the cause and then finding ways to reduce or even eliminate such errors. 
 
 The central research hypothesis that underlies this project is that many errors are due to a mismatch between developers' perception and actual guarantees that APIs offer. Furthermore, we expect that this mismatch can be determined through qualitative studies eliciting mental models of how developers use security API.
 Our second research hypotesis (which naturally follows from the previous one) is that APIs can be improved through better abstractions which better reflect developer expectations of the underlying security functionality, thus closing the gap captured by said mental models.  
@@ -276,6 +271,8 @@ Two major objectives follow from the above discussion:
 
 \item[O2:] To develop improved abstractions that are more usable and cultivate correct mental models of the APIs in question.
 \end{itemize}
+
+\bw{Shouldn't we say there's three objetives?  It looks strange to have three items :)}
 
 
 \subsection*{Project structure and methodology}
@@ -312,6 +309,8 @@ As work in WP2 progresses, we will repeat the in-lab studies with both student a
 
 \end{itemize} 
 
+\vspace{.3cm}
+
 \item[WP 2] \textbf{New abstractions and realisations.} 
 
 In this three-stage work package we will use the results of WP1 to develop improved interfaces to the libraries that implement security features.  
@@ -322,17 +321,28 @@ In the next stage we will provide theoretical grounding, for example in the form
 
 
  The third stage we will provide practical realizations in the form of improved APIs which reflect the new abstractions which we will develop.  
-An example that we can use is the recent work by Boldyreva, Patton and Shrimpton~\cite{C:BolPatShr17} who show how to employ existing APIs to implement more advanced functionality (in the context of headged encryption).
+Examples that we can use is the work by Bond et al.~\cite{bond2013low} in the context of APIs to HSMs or the more recent work by Boldyreva, Patton and Shrimpton~\cite{C:BolPatShr17} who show how to employ existing APIs to standard cryptographic library to implement more advanced functionality.
 \vspace{.3cm}
 \iffalse
 Technically, we will provide wrappers to some of the most commonly used libraries.  
 We remark that improved APIs is one of the feature of the NaCl cryptographic library~\cite{bernstein}; currently that library only considers lower level primitives.  
 \fi
 
-\subparagraph{Milestones}
-Year two will result in two related but distinct milestones \textbf{M2:} novel abstractions and their theoretical analysis and \textbf{M3:} improved API for (selected) security functionality. 
-\ar{I moved this here. I have done milestones per work-package. Perhaps we can integrate them but I thought it would be good if they could see what comes out of the research in each work-package}
 
+
+
+\vspace{-\baselineskip}
+\subparagraph{Milestones.}
+
+\begin{itemize}
+
+\item[M2.1:] Design and formal analysis of novel abstractions for selected security functionality \textit{(Month 18)}.
+
+\item[M2.2:] Implementation of novel abstractions for selected security functionality \textit{(Month 24)}.
+
+\end{itemize}
+
+\vspace{.3cm}
 
 \item[WP 3] \textbf{Evaluation.}
 
@@ -362,49 +372,52 @@ As noted above, we envision an iterative process where the mental models develop
 \textit{Month 37-42}. No tasks or milestones are planned for months 37-42 as the student will use the final six months for writing up the thesis.
 
 
-%We summarise the workplan in the following chart:
+We summarise the workplan in the following chart:
 
-%\begin{center}
-%\begin{ganttchart}[hgrid,vgrid]{1}{21}
-%\gantttitle{year 1}{6}
-%\gantttitle{year 2}{6}
-%\gantttitle{year 3}{6}
-%\gantttitle{year 4}{3}
-%\ganttnewline
-%\gantttitle{6 mo}{3}
-%\gantttitle{12 mo}{3}
-%\gantttitle{18 mo}{3}
-%\gantttitle{24 mo}{3}
-%\gantttitle{30 mo}{3}
-%\gantttitle{36 mo}{3}
-%\gantttitle{42 mo}{3}
+\iffalse
 
-%\ganttnewline
+\begin{center}
+\begin{ganttchart}[hgrid,vgrid]{1}{21}
+\gantttitle{year 1}{6}
+\gantttitle{year 2}{6}
+\gantttitle{year 3}{6}
+\gantttitle{year 4}{3}
+\ganttnewline
+\gantttitle{6 mo}{3}
+\gantttitle{12 mo}{3}
+\gantttitle{18 mo}{3}
+\gantttitle{24 mo}{3}
+\gantttitle{30 mo}{3}
+\gantttitle{36 mo}{3}
+\gantttitle{42 mo}{3}
 
-%\ganttbar{preparation}{1}{3}
+\ganttnewline
 
-%\ganttnewline
+\ganttbar{preparation}{1}{3}
 
-%\ganttbar{WP 1}{4}{9}
-%\ganttmilestone{}{6}
+\ganttnewline
 
-%\ganttnewline
+\ganttbar{WP 1}{4}{9}
+\ganttmilestone{}{6}
 
-%\ganttbar{WP 2}{10}{15}
-%\ganttmilestone{}{12}
+\ganttnewline
 
-%\ganttnewline
+\ganttbar{WP 2}{10}{15}
+\ganttmilestone{}{12}
 
-%\ganttbar{WP 3}{16}{18}
-%\ganttmilestone{}{18}
+\ganttnewline
 
-%\ganttnewline
+\ganttbar{WP 3}{16}{18}
+\ganttmilestone{}{18}
 
-%\ganttbar{thesis}{19}{21}
+\ganttnewline
 
-%\end{ganttchart}
-%\end{center}
+\ganttbar{thesis}{19}{21}
 
+\end{ganttchart}
+\end{center}
+
+\fi
 
 \subsection*{Alignment with Research Areas in the Call}
 
