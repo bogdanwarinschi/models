@@ -164,11 +164,11 @@ proof methods for the security of protocols.
 
 
 Dr. Warinschi served on more than thirty program committees, most recently on Security and Privacy '16, Eurocrypt'15 and Eurocrypt'14.  He is internationally known for helping establish the research area generically known as {\em computational   soundness}~\cite{cortier05computationally,micciancio04soundness}.
-The basic idea is to combine two fundamentally different paradigms for proving security, one based on symbolic (formal methods-like) techniques and one based on complexity and computation theory. The main benefit of the approach is that it enables simpler design of tools for computer-aided verification that yields computational security guarantees. Part of the scientific underpining of this project relies on his expertise in this subject. 
+The basic idea is to combine two fundamentally different paradigms for proving security, one based on symbolic (formal methods-like) techniques and one based on complexity and computation theory. The main benefit of the approach is that it enables simpler analysis which uses higher level abstractions yet which offers computational security guarantees. Part of the scientific underpining of this project relies on his expertise in this subject. 
 
 In addition to his expertise in the area of computational soundness, this proposal relies on the expertise of Prof. Warinschi in the design of security models and his interest in analysing systems used in practice. In particular, he has maintained a constant interest in designing cryptographic security models, the first step towards the rigorous analysis of any cryptographic system. 
 His research addresses the security of group signatures \cite{BMW03}, proxy signatures \cite{proxies}, defence mechanisms for DOS resistance (cryptographic puzzles) \cite{puzzles},  key-exchange \cite{ke}, voting schemes \cite{helios}, and cryptographic APIs \cite{KSW11}.
-This work is complemented by security analysis that led to a better understanding of protocols and primitives that are in current use.  These include Public Key Infrastructures (PKI) \cite{boldyreva07acloser}, the Trusted Platform Module (TPM) \cite{pcas}, the Helios Internet voting schemes \cite{helios}, and the ubiquitous Transport Layer Security protocol (TLS) \cite{tls}. 
+This work is complemented by security analysis on protocols and primitives that are deployed.   These include Public Key Infrastructures (PKI) \cite{boldyreva07acloser}, the Trusted Platform Module (TPM) \cite{pcas}, the Helios Internet voting schemes \cite{helios}, and the ubiquitous Transport Layer Security protocol (TLS) \cite{tls}. 
 
 To date, seven students have completed their PhD under the (co-)supervision of Prof.~Warinschi; he is currently (co-)supervising two 
 students.
@@ -235,7 +235,7 @@ Employing protocols (rather than vanilla encryption) goes a long way towards avo
 For example, when used with care, a secure channel protocol like the Transport Layer Security (TLS) takes care of entity and message authentication, integrity of the communication and so on.  Furthermore, good, widely vetted protocol implementations are readily available through libraries.  However, a developer using these libraries is faced with further challenges.  The APIs of these libraries are complex and unintuitive, require users to set often obscure parameters, and select between many possible configurations -- some secure, some insecure!  Many attacks are in fact due to incompetent uses of existing libraries~\cite{GIJABS12}. 
 
 \paragraph{Usability issues of security APIs.} 
-Recent work has started to more closely look at the source of the problem 
+Recent work has started to look more closely at the source of the problem 
  and by now a number of studies, such as~\cite{enck2011, fahl2012, fischer2017}, have highlighted the problems of unintentional API misuse by developers leading to vulnerabilities. However, such works have not explored the mental models that lead to misuse and how the abstractions used in the APIs shape such mental models. Although research exists on supporting end users in software engineering activities~\cite{ko2011}, the security mental models of end user developers remain unaddressed. 
 
 Recent work in Rashid's group~\cite{weir2016} has highlighted that app developers had a tendency to avoid security issues and concentrate on delivering functionality. A further analysis demonstrated that developers best learn through a challenge-based approach whereby various stakeholders, e.g., testing teams, business teams, peers, and automated tools, e.g., static and dynamic analysis, help them understand and learn about security~\cite{weir2017}. These studies demonstrate the need for a deeper understanding of developers' mental models of security APIs. 
@@ -271,10 +271,10 @@ All these works have focused on mental models of \emph{end-users}. To date there
 \subsection*{Research hypothesis and objectives.}
 
 Security APIs are key to the robustness of deployed systems in face of malicious attackers. 
-Yet there is by now mounting evidence of widespread misuse so eggregious that  completely undermines the desired guarantees.  The overarching aim of this project is to determine the cause and then finding ways to reduce or even eliminate such errors. 
+Yet there is by now mounting evidence of widespread misuse, often so eggregious that  completely undermines the desired guarantees.  The overarching aim of this project is to determine the cause and then to find ways to reduce or even eliminate such errors. 
 
 The central research hypothesis that underlies this project is that many errors are due to a mismatch between developers' perception and actual guarantees that APIs offer. Furthermore, we expect that this mismatch can be determined through qualitative studies eliciting mental models of how developers use security API.
-Our second research hypothesis (which naturally follows from the previous one) is that APIs can be improved through better abstractions which better reflect developer expectations of the underlying security functionality, thus closing the gap captured by said mental models.  
+Our second research hypothesis (which naturally follows from the previous one) is that APIs can be improved through better abstractions which reflect more closely developer expectations of the underlying security functionality, thus closing the gap captured by said mental models.  
 
 Three major objectives follow from the above discussion: 
 \begin{itemize}
